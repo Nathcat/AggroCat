@@ -25,7 +25,7 @@
                 $set = $q->get_result();
 
                 while ($u = $set->fetch_assoc()) {
-                    echo "<div class='user-record row align-center'><div class='small-profile-picture' style='place-self: end; margin-right: 25px;'><img src='https://cdn.nathcat.net/pfps/" . $u["pfpPath"] . "'></div><div class='column' style='width: 100%; height: 100%; justify-content: center;'><h2><b>" . $u["fullName"] . "</b></h2><p><i>" . $u["username"] . "</i></p></div><h1>" . $u["value"] . "</h1></div>";
+                    echo "<div class='user-record row align-center'><div class='row' style='align-items: center; justify-content: end; width: 100%; height: 100%; margin-right: 25px;'><div class='small-profile-picture'><img src='https://cdn.nathcat.net/pfps/" . $u["pfpPath"] . "'></div></div><div class='column' style='width: 100%; height: 100%; justify-content: center;'><h2><b>" . $u["fullName"] . "</b></h2><p><i>" . $u["username"] . "</i></p></div><h1>" . $u["value"] . "</h1></div>";
                 }
                 ?>
             </div>
