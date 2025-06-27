@@ -1,9 +1,11 @@
-const API_HOSTNAME = "https://nathcat.net:5050";
-
 function get_leaderboard(callback) {
-    fetch(API_HOSTNAME + "/GetCurrent")
-    .then((r) => r.json())
-    .then(callback);
+    fetch("https://data.nathcat.net/data/get-leaderboard-state.php", {
+        method: "POST",
+        body: JSON.stringify({
+            "leaderboardId": "5",
+            "orderBy": "DESC"
+        })
+    }).then((r) => r.json()).then((r) => { callback(r.results); });
 }
 
 function get_user(id, callback) {

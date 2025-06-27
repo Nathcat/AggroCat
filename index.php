@@ -29,15 +29,10 @@
 
 <script>
     get_leaderboard((data) => {
-        let records = Object.entries(data);
-
-        if (records.length !== 0) {
-            for (let i = 0; i < records.length; i++) {
-                let userRecord = records[i];
-                document.getElementById("leaderboard").innerHTML += "<div id='user-" + userRecord[0] + "' class='user-record row align-center'> <div></div> <div class='lds-ring'><div></div><div></div><div></div><div></div></div> <div></div> </div>"
-                get_user(userRecord[0], (user) => {
-                    $("#user-" + user["id"]).html("<div class='row' style='align-items: center; justify-content: end; width: 100%; height: 100%; margin-right: 25px;'><div class='small-profile-picture'><img src='https://cdn.nathcat.net/pfps/" + user.pfpPath + "'></div></div><div class='column' style='width: 100%; height: 100%; justify-content: center;'><h2><b>" + user.fullName + "</b></h2><p><i>" + user.username + "</i></p></div><h1>" + data[user["id"]] + "</h1>")
-                });
+        if (data.length !== 0) {
+            for (let i = 0; i < data.length; i++) {
+                let userRecord = data[i];
+                document.getElementById("leaderboard").innerHTML += "<div class='user-record row align-center'><div class='row' style='align-items: center; justify-content: end; width: 100%; height: 100%; margin-right: 25px;'><div class='small-profile-picture'><img src='https://cdn.nathcat.net/pfps/" + userRecord.pfpPath + "'></div></div><div class='column' style='width: 100%; height: 100%; justify-content: center;'><h2><b>" + userRecord.fullName + "</b></h2><p><i>" + userRecord.username + "</i></p></div><h1>" + userRecord.value + "</h1></div>"
             }
         }
         else {
